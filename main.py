@@ -18,3 +18,11 @@ def listarBancoDados(connection, sql, dados=None):
     results = cursor.fetchall()
     cursor.close()
     return results
+
+def atualizarBancoDados(connection, sql, dados):
+    cursor = connection.cursor()
+    cursor.execute(sql, dados)
+    connection.commit()
+    linhasAfetadas = cursor.rowcount
+    cursor.close()
+    return linhasAfetadas
