@@ -11,3 +11,10 @@ def insertNoBancoDados(connection, sql, dados):
     id = cursor.lastrowid
     cursor.close()
     return id
+
+def listarBancoDados(connection, sql, dados=None):
+    cursor = connection.cursor()
+    cursor.execute(sql, dados)
+    results = cursor.fetchall()
+    cursor.close()
+    return results
