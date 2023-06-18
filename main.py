@@ -26,3 +26,11 @@ def atualizarBancoDados(connection, sql, dados):
     linhasAfetadas = cursor.rowcount
     cursor.close()
     return linhasAfetadas
+
+def excluirBancoDados(connection, sql, dados):
+    cursor = connection.cursor()
+    cursor.execute(sql, dados)
+    connection.commit()
+    linhasAfetadas = cursor.rowcount
+    cursor.close()
+    return linhasAfetadas
